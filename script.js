@@ -502,9 +502,6 @@ function renderMethodCards() {
     card.className = 'method-row';
     card.dataset.methodId = principle.id;
     card.setAttribute('aria-hidden', 'true');
-    const label = document.createElement('span');
-    label.className = 'method-card-label';
-    label.textContent = `${principle.number} · ${principle.eyebrow}`;
     const title = document.createElement('h3');
     title.textContent = principle.title;
     const body = document.createElement('p');
@@ -516,7 +513,7 @@ function renderMethodCards() {
     const accent = document.createElement('span');
     accent.className = 'method-card-accent';
     accent.setAttribute('aria-hidden', 'true');
-    card.append(label, title, body, index, accent);
+    card.append(title, body, index, accent);
     return card;
   }));
   methodCards = [...methodList.children];
@@ -1182,6 +1179,7 @@ function drawMethodStack(travelled) {
   const momentum = clamp(scene.scrollVelocity * 0.008, -14, 14);
   const beforeFirst = travelled < entryDistance;
   const entryProgress = clamp(travelled / entryDistance, 0, 1);
+  const easedEntryProgress = 1 - Math.pow(1 - entryProgress, 3);
   const journeyPosition = beforeFirst ? 0 : clamp((travelled - entryDistance) / stepDistance, 0, HOW_I_WORK.length - 1);
   const currentStackTop = Math.min(HOW_I_WORK.length - 1, Math.floor(journeyPosition));
   const phase = beforeFirst || currentStackTop === HOW_I_WORK.length - 1 ? 0 : journeyPosition - currentStackTop;
@@ -1193,9 +1191,9 @@ function drawMethodStack(travelled) {
     let z;
     if (beforeFirst) {
       const depth = index;
-      stackY = index === 0 ? viewport * (1 - entryProgress) - momentum : viewport + depth * 24;
+      stackY = index === 0 ? 12 * (1 - easedEntryProgress) : viewport + depth * 24;
       scale = 1 - Math.min(depth, 3) * 0.03;
-      opacity = Math.max(0.78, 1 - depth * 0.065);
+      opacity = index === 0 ? 1 : Math.max(0.78, 1 - depth * 0.065);
       z = index === 0 ? 1001 : 700 + index;
     } else if (index < currentStackTop) {
       const depth = currentStackTop - index + phase;

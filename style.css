@@ -19,7 +19,7 @@ button { color: inherit; font: inherit; }
 .site-header { height: 78px; padding: 0 5.1vw; display: grid; grid-template-columns: 1fr auto; align-items: center; position: absolute; z-index: 5; top: 0; left: 0; width: 100%; }
 .wordmark { width: max-content; font-size: 24px; line-height: 1; font-weight: 800; letter-spacing: -.11em; }
 .wordmark span, .footer-name span { color: var(--accent); }
-.menu-toggle, .eyebrow, .section-number, .section-aside, .hero-topline, .hero-caption, .project-number, .project-tags, .project-detail > span, .method-row > span, .method-row > b, .timeline-date, .timeline-index, .article-row > span, .article-row > a, .small-note, .menu-foot, .footer-quote cite, .copyright { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.menu-toggle, .eyebrow, .section-number, .section-aside, .hero-topline, .hero-caption, .project-number, .project-tags, .project-detail > span, .method-row > b, .timeline-date, .timeline-index, .article-row > span, .article-row > a, .small-note, .menu-foot, .footer-quote cite, .copyright { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
 .menu-toggle { justify-self: end; background: transparent; border: 0; padding: 10px 0 10px 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
 .menu-label { letter-spacing: .12em; }
 .menu-icon { display: flex; flex-direction: column; gap: 4px; width: 16px; }
@@ -93,8 +93,7 @@ h1 em, h2 em { color: var(--accent); font-style: normal; }
 .method-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; margin: 86px 0 55px; }
 .method-heading > p, .writing-heading > p { max-width: 250px; color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 5px 8%; }
 .method-list { border-top: 1px solid var(--border); }
-.method-row { min-height: 94px; display: grid; grid-template-columns: 9% 1fr 1fr 20px; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); }
-.method-row > span { color: var(--accent); }
+.method-row { min-height: 94px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 20px; gap: 15px; align-items: center; border-bottom: 1px solid var(--border); }
 .method-row h3 { font-size: 15px; letter-spacing: -.015em; font-weight: 600; margin: 0; }
 .method-row p { color: var(--muted); font-size: 12px; line-height: 1.6; margin: 0; }
 .method-row > b { color: var(--accent); font-size: 15px; font-weight: 400; }
@@ -210,10 +209,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
   .method-heading { grid-template-columns: 1fr; gap: 22px; margin: 55px 0 34px; }
   .method-heading > p, .writing-heading > p { margin-left: 0; font-size: 12px; }
-  .method-row { min-height: 88px; grid-template-columns: 27px 1fr 17px; gap: 8px; padding: 12px 0; }
-  .method-row h3 { font-size: 12px; }
-  .method-row p { grid-column: 2; grid-row: 2; font-size: 11px; }
-  .method-row > b { grid-column: 3; grid-row: 1 / span 2; }
+  .method-row { min-height: 88px; grid-template-columns: minmax(0, 1fr) 17px; gap: 8px; padding: 12px 0; }
+  .method-row h3 { grid-column: 1; grid-row: 1; font-size: 12px; }
+  .method-row p { grid-column: 1; grid-row: 2; font-size: 11px; }
+  .method-row > b { grid-column: 2; grid-row: 1 / span 2; }
   .timeline { margin-top: 29px; }
   .timeline-row { min-height: 90px; grid-template-columns: 1fr 22px; gap: 8px; padding: 16px 0; }
   .timeline-date { grid-column: 1; grid-row: 1; margin-bottom: -3px; font-size: 8px; }
@@ -688,13 +687,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   transform-origin: center;
   will-change: transform, opacity;
 }
-.method-motion-ready .method-card-label {
-  display: block;
-  margin-bottom: clamp(28px, 5vh, 54px);
-  color: var(--muted);
-  font: 12px/1.4 var(--mono);
-  letter-spacing: .11em;
-}
 .method-motion-ready .method-row h3 {
   position: relative;
   z-index: 1;
@@ -750,7 +742,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .method-motion-ready .method-heading { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
   .method-motion-ready .method-heading > p { margin: 0; max-width: 420px; }
   .method-motion-ready .method-row { top: 64%; width: calc(100% - 32px); height: clamp(320px, 42svh, 370px); padding: clamp(24px, 5vw, 32px); }
-  .method-motion-ready .method-card-label { margin-bottom: clamp(32px, 5.5svh, 46px); font-size: 11px; }
   .method-motion-ready .method-row h3 { max-width: 420px; margin-bottom: 16px; font-size: clamp(34px, 9vw, 50px); }
   .method-motion-ready .method-row p { max-width: 460px; font-size: 17px; line-height: 1.6; }
   .method-motion-ready .method-card-number { right: 20px; bottom: -10px; font-size: clamp(180px, 48vw, 280px); }
@@ -762,9 +753,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .method-motion-ready .method-stage { position: relative; top: auto; display: block; width: auto; height: auto; min-height: 0; overflow: visible; }
   .method-motion-ready .method-list { position: relative; inset: auto; border-top: 1px solid var(--border); }
   .method-motion-ready .method-row { position: relative; top: auto; left: auto; width: auto; height: auto; min-height: 112px; display: grid; grid-template-columns: 9% 1fr 1fr; gap: 15px; align-items: center; padding: 22px 0; background: transparent; border: 0; border-bottom: 1px solid var(--border); box-shadow: none; opacity: 1; transform: none; }
-  .method-motion-ready .method-card-label, .method-motion-ready .method-card-number, .method-motion-ready .method-card-accent, .method-motion-ready .method-state { display: none; }
-  .method-motion-ready .method-row h3 { grid-column: 2; margin: 0; font-size: 16px; line-height: 1.2; }
-.method-motion-ready .method-row p { grid-column: 3; font-size: 16px; line-height: 1.6; }
+  .method-motion-ready .method-card-number, .method-motion-ready .method-card-accent, .method-motion-ready .method-state { display: none; }
+  .method-motion-ready .method-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .method-motion-ready .method-row h3 { grid-column: 1; margin: 0; font-size: 16px; line-height: 1.2; }
+  .method-motion-ready .method-row p { grid-column: 2; font-size: 16px; line-height: 1.6; }
 }
 
 /* 05 — Writing: a scroll-paced editorial research index. */
