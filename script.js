@@ -148,10 +148,13 @@ const CERTIFICATES = [
     skills: ["Business Communication Skills", "Product Management", "+3 additional skills"]
   },
   {
-    title: "GFS Certificate",
-    issuer: "Scaler × Google for Startups",
+    title: "Startup School: Prompt to Prototype",
+    issuer: "Google for Startups",
+    year: "2025",
+    date: "Dec 09, 2025",
     type: "PROGRAM",
-    description: "A hands-on program focused on building AI-first products through prompt engineering, deep research workflows, rapid prototyping with Google AI Studio, multimodal tools, GitHub, and Cloud Run.",
+    description: "Completed Google for Startups Startup School: Prompt to Prototype.",
+    url: "https://drive.google.com/file/d/1_s_RO4bCMabvJrdwrtv6AB9Zct2v0KsN/view?usp=sharing",
     image: ""
   }
 ];
