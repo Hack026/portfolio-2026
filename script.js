@@ -1,6 +1,5 @@
 const RESUME_URL = "https://drive.google.com/file/d/1zG5Cz3mahu6sG-uubQaCVUhBP08eTS1B/view?usp=sharing";
-// TODO: Replace with the final YouTube URL for the video resume.
-const VIDEO_RESUME_URL = "";
+const VIDEO_RESUME_URL = "https://youtu.be/lb_fH6A5060";
 
 // PROJECT DATA: this single collection drives cards and the scroll journey.
 const PROJECTS = [
