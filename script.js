@@ -7,9 +7,9 @@ const PROJECTS = [
     id: "foundertruth",
     title: "foundertruth",
     category: "AI STARTUP INTELLIGENCE PLATFORM",
-    description: "Building and evolving an AI-powered platform for early-stage founders.",
+    description: "building software for incubators, accelerators, universities and organisations that support entrepreneurs.",
     tags: ["PRODUCT", "STRATEGY", "AI", "GROWTH"],
-    metrics: ["160+ registered users", "2.9K+ page views"],
+    metrics: [],
     url: "https://foundertruth.in/",
     linkedin: "https://www.linkedin.com/company/foundertruth/home",
     image: ""
